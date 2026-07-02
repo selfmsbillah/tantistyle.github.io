@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- আমি এখানে ব্রাউজারের basic security policy সেট করছি। -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <!-- আমি এখানে অন্য সাইটে যাওয়ার সময় referrer তথ্য সীমিত করছি। -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Tanti Style - Weaving Tradition, Dressing Today</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="container header-flex">
+            <div class="logo">
+                <img src="logo1.jpg" alt="Tanti Style Logo">
+            </div>
+            <div class="search-bar">
+                <!-- আমি এখানে search input সীমিত রাখছি যেন অতিরিক্ত বড় লেখা UI ভাঙতে না পারে। -->
+                <input type="text" id="product-search-input" placeholder="Search product..." maxlength="80" autocomplete="off">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="login-btn" id="login-link"><i class="far fa-user"></i> Login</a>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <ul class="nav-links">
+                <li><a href="#" class="active" id="nav-home-btn">Home</a></li>
+                <li><a href="#" id="nav-new-arrivals-btn">New Arrivals</a></li>
+                <li><a href="#" id="nav-categories-btn">Categories</a></li>
+                <!-- Featured অপশনটি ডিলিট করা হয়েছে -->
+                <li><a href="#" id="nav-bestsellers-btn">Best Sellers</a></li>
+                <li><a href="#" id="nav-specialoffers-btn">Special Offers</a></li>
+                <li><a href="#" id="nav-contact-btn">Contact Us</a></li>
+            </ul>
+            <div class="flash-sale">
+                <a href="#" class="flash-btn" id="nav-flashsale-btn"><i class="fas fa-star"></i> FLASH SALE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area wrapper -->
+    <div id="main-content-wrapper">
+
+        <!-- HOME VIEW CONTAINER -->
+        <div id="main-shop-content">
+            <section class="hero-slider">
+                <div class="slider-container">
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h1>Exclusive Collection</h1>
+                            <p>Discover the finest traditional wear crafted just for you.</p>
+                            <div class="slider-buttons">
+                                <a href="#products-display" class="btn btn-primary shop-now-btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+
+            <section id="products-display" class="products-section container" style="scroll-margin-top: 20px;">
+                <div class="section-header">
+                    <h2 id="products-section-title">Related Products</h2>
+                    <a href="#" class="view-all-btn">View All Items <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Dynamic Sub-filters Container -->
+                <div id="dynamic-sub-filters" style="margin-bottom: 30px; display: none; gap: 15px; justify-content: center;">
+                    <!-- JS will inject buttons here -->
+                </div>
+
+                <div class="product-grid">
+                    <!-- ১ নম্বর প্রোডাক্ট (43.75% ডিসকাউন্ট) -->
+                    <div class="product-card" data-category="sharee" data-discount="43.75">
+                        <div class="badge">18.75%</div>
+                        <div class="product-img">
+                            <img src="item1.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Semi Moslin Silk Saree</h3>
+                            <p class="price">৳650 <span class="old-price">৳800</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sharee">
+                        <div class="badge">20%</div>
+                        <div class="product-img">
+                            <img src="item2.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Katan Saree</h3>
+                            <p class="price">৳1,200 <span class="old-price">৳1,500</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sharee">
+                        <div class="badge">28%</div>
+                        <div class="product-img">
+                            <img src="item3.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Katan Saree</h3>
+                            <p class="price">৳1,800 <span class="old-price">৳2,500</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sharee">
+                        <div class="badge">28%</div>
+                        <div class="product-img">
+                            <img src="item4.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Katan Saree</h3>
+                            <p class="price">৳1,800 <span class="old-price">৳2,500</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sharee">
+                        <div class="badge">20%</div>
+                        <div class="product-img">
+                            <img src="item5.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Exclusive Jamdani Saree</h3>
+                            <p class="price">৳1,600 <span class="old-price">৳2,000</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sharee">
+                        <div class="badge">20%</div>
+                        <div class="product-img">
+                            <img src="item6.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Katan Saree</h3>
+                            <p class="price">৳1,600 <span class="old-price">৳2,000</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ২ নম্বর প্রোডাক্ট (30% ডিসকাউন্ট) -->
+                    <div class="product-card" data-category="sharee" data-discount="30">
+                        <div class="badge">16%</div>
+                        <div class="product-img">
+                            <img src="item7.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Katan Saree</h3>
+                            <p class="price">৳2,100 <span class="old-price">৳2,500</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sharee">
+                        <div class="badge">25%</div>
+                        <div class="product-img">
+                            <img src="item8.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Katan Saree</h3>
+                            <p class="price">৳1,950 <span class="old-price">৳2,600</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="others">
+                        <div class="badge">21.43%</div>
+                        <div class="product-img">
+                            <img src="item9.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Lungi</h3>
+                            <p class="price">৳1,100 <span class="old-price">৳1,400</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ৩ নম্বর প্রোডাক্ট (50% ডিসকাউন্ট) -->
+                    <div class="product-card" data-category="others" data-discount="50">
+                        <div class="badge">20.83%</div>
+                        <div class="product-img">
+                            <img src="item10.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Lungi</h3>
+                            <p class="price">৳950 <span class="old-price">৳1,200</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="others">
+                        <div class="badge">26.32%</div>
+                        <div class="product-img">
+                            <img src="item11.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Lungi</h3>
+                            <p class="price">৳1,400<span class="old-price">৳1,900</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="others">
+                        <div class="badge">16.67%</div>
+                        <div class="product-img">
+                            <img src="item12.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Premium Lungi</h3>
+                            <p class="price">৳1,000 <span class="old-price">৳1,200</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="graphic-design">
+                        <div class="badge">25%</div>
+                        <div class="product-img">
+                            <img src="item13.jpg" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Personalized Wedding Certificate</h3>
+                            <p class="price">৳750<span class="old-price">৳1,000</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="graphic-design">
+                        <div class="badge">25%</div>
+                        <div class="product-img">
+                            <img src="item14.jpg" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Personalized Wedding Certificate</h3>
+                            <p class="price">৳700 <span class="old-price">1,000
+
+
+    
+                            </span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="graphic-design">
+                        <div class="badge">21%</div>
+                        <div class="product-img">
+                            <img src="item15.jpg" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Personalized Wedding Certificate</h3>
+                            <p class="price">৳790 <span class="old-price">৳1,000</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="graphic-design">
+                        <div class="badge">28%</div>
+                        <div class="product-img">
+                            <img src="item16.png" alt="Product">
+                        </div>
+                        <div class="product-info">
+                            <h3>Personalized Wedding Certificate</h3>
+                            <p class="price">৳720 <span class="old-price">৳1,000</span></p>
+                            <div class="card-buttons">
+                                <button class="btn-cart">Add To Cart</button>
+                                <button class="btn-order">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="store-info-section container">
+                <h2>Online Store of Authentic Sharees</h2>
+                <p>Welcome to Tanti Style, where we celebrate the timeless heritage of traditional Bangladeshi weaving. Originating straight from our authentic handloom factories in Enayetpur, Sirajganj, we bring you the finest collection of handcrafted Jamdani, Katan, and Cotton Sarees.</p>
+                <a href="#" class="read-more-btn">Read More <i class="fas fa-chevron-down"></i></a>
+            </section>
+        </div>
+
+        <!-- OUR STORE VIEW -->
+        <div id="our-store-view" class="policy-page-container" style="display: none;">
+            <div class="policy-page-header">
+                <h1>Our Stores</h1>
+            </div>
+            <div class="container store-cards-grid">
+                <div class="store-card">
+                    <div class="store-card-header">
+                        <h2><i class="fas fa-warehouse"></i> Enayetpur Branch</h2>
+                        <span class="country-badge">Bangladesh</span>
+                    </div>
+                    <div class="store-card-body">
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> Enayetpur, Sirajgonj 6751</p>
+                        <div class="store-meta">
+                            <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> 01570282112</p>
+                            <p><strong><i class="fas fa-envelope"></i> Email:</strong> tantistyleinfo@gmail.com</p>
+                        </div>
+                        <div class="store-hours">
+                            <h3><i class="far fa-clock"></i> Open Days & Hours</h3>
+                            <ul>
+                                <li><span>Sunday:</span> <span>6:00 AM - 3:00 PM</span></li>
+                                <li><span>Wednesday:</span> <span>6:00 AM - 3:00 PM</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="store-card">
+                    <div class="store-card-header">
+                        <h2><i class="fas fa-warehouse"></i> Shajadpur Branch</h2>
+                        <span class="country-badge">Bangladesh</span>
+                    </div>
+                    <div class="store-card-body">
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> Shajadpur, Sirajgonj 6760</p>
+                        <div class="store-meta">
+                            <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> 01570282112</p>
+                            <p><strong><i class="fas fa-envelope"></i> Email:</strong> tantistyleinfo@gmail.com</p>
+                        </div>
+                        <div class="store-hours">
+                            <h3><i class="far fa-clock"></i> Open Days & Hours</h3>
+                            <ul>
+                                <li><span>Sat 2:00 PM -</span> <span>Sun 10:00 PM</span></li>
+                                <li><span>Wed 2:00 PM -</span> <span>Thu 10:00 PM</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIVACY POLICY VIEW -->
+        <div id="privacy-policy-view" class="policy-page-container" style="display: none;">
+            <div class="policy-page-header">
+                <h1>Privacy Policy</h1>
+            </div>
+            <div class="container policy-page-content">
+                <h2>Tanti Style Privacy Policy</h2>
+                <p class="last-updated">Last Updated: July 2026</p>
+                <p>At Tanti Style, we are highly committed to protecting the privacy and security of our online visitors and customers. Operating from our traditional handloom manufacturing units in Enayetpur, Sirajganj, this privacy policy governs how we collect, process, and secure your personal data when you interact with our e-commerce platform.</p>
+                <h3>1. Information We Collect</h3>
+                <p>To process your orders and ensure smooth customer support, we collect the following essential information:</p>
+                <ul>
+                    <li>Your full name and contact details.</li>
+                    <li>Active phone number and professional email address.</li>
+                    <li>Accurate shipping and billing address for standard product deliveries.</li>
+                </ul>
+                <h3>2. Data Protection and Third-Party Disclosure</h3>
+                <p>Your trust is our priority. We strictly maintain high data security measures and do not sell, trade, or share your private information with third parties for marketing purposes.</p>
+                <h3>3. Corporate Contact Information</h3>
+                <div class="policy-contact-box">
+                    <p><strong>Email:</strong> tantistyleinfo@gmail.com</p>
+                    <p><strong>Phone:</strong> 01570282112</p>
+                    <p><strong>Factory Address:</strong> Enayetpur, Sirajgonj 6751, Bangladesh</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RETURN POLICY VIEW -->
+        <div id="return-policy-view" class="policy-page-container" style="display: none;">
+            <div class="policy-page-header">
+                <h1>Returns + Exchanges</h1>
+            </div>
+            <div class="container policy-page-content">
+                <h2>Tanti Style Return & Exchange Policy</h2>
+                <p class="last-updated">Last Updated: July 2026</p>
+                <p>At Tanti Style, we are committed to providing premium quality, flaw-free items. We enforce strict product verification processes from the production floor to delivery packaging to ensure supreme customer satisfaction.</p>
+                <h3>1. Our Core Responsibility</h3>
+                <p>If any product experiences manufacturing flaws or defects prior to reaching your doorstep, Tanti Style accepts full accountability for providing a replacement or matching solution.</p>
+                <h3>2. Verification Upon Delivery</h3>
+                <p>We kindly request our customers to check and verify the product immediately upon receiving it. If you detect any defect or variation, please contact our Customer Support team without delay.</p>
+                <h3>3. Remedial Action and Timelines</h3>
+                <p>Our dedicated support team will review your claim promptly. Valid defect claims will be resolved through a smooth product exchange or an authorized return process.</p>
+                <div class="special-alert-box">
+                    <p><strong>⚠️ Special Notice:</strong> Any claims made after wearing or using the item, or after 24 hours have passed from the time of delivery, will not be considered under any circumstances. Please notify us within the 24-hour window.</p>
+                </div>
+                <div class="policy-contact-box">
+                    <p><strong>Customer Care Support:</strong> 01580912865</p>
+                    <p><strong>Official Email:</strong> tantistyleinfo@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TERMS & CONDITIONS VIEW -->
+        <div id="terms-conditions-view" class="policy-page-container" style="display: none;">
+            <div class="policy-page-header">
+                <h1>Terms & Conditions</h1>
+            </div>
+            <div class="container policy-page-content">
+                <h2>Tanti Style Terms of Service</h2>
+                <p class="last-updated">Last Updated: July 2026</p>
+                <p>Welcome to Tanti Style. These Terms & Conditions govern your use of our website and the purchase of our products. By accessing our platform or placing an order, you agree to be bound by these rules.</p>
+                <h3>1. Changes to Terms and Conditions</h3>
+                <p>We reserve the right to update, modify, or change any part of these Terms & Conditions at any time without prior notice. Your continued use of this website following any changes constitutes acceptance of those modifications.</p>
+                <h3>2. Products, Content, and Specifications</h3>
+                <p>All features, content, specifications, products, and prices described on this website are subject to change at any time without notice. We make all reasonable efforts to accurately display the attributes of our products, including the true colors of our traditional handloom items. However, the actual color you see will depend on your device screen settings.</p>
+                <h3>3. Shipping Limitations</h3>
+                <p>When an order is placed, it will be shipped to the designated shipping address provided by the buyer. All purchases from this website are made pursuant to a shipment contract. As a result, risk of loss and title for items purchased pass to you upon delivery of the items to our trusted third-party courier partner.</p>
+                <h3>4. Your Account</h3>
+                <p>If you register or create an account on our website, you are responsible for maintaining the confidentiality of your account credentials and password. You agree to accept full responsibility for all activities that occur under your account.</p>
+                <h3>5. Exchange and Refund Policy (Online Shop)</h3>
+                <p>We stand behind the quality of our authentic handloom items. If you receive a defective or damaged product, we assume full responsibility. You must check the product upon delivery and report any issues directly to our Customer Care within 24 hours of receiving the parcel. Complaints made after 24 hours or after wearing the item will not be accepted.</p>
+                <h3>6. Copyright and Trademark</h3>
+                <p>All materials displayed on this website, including website design, text, graphics, product images, illustrations, logos, and software, are the exclusive property of Tanti Style. You may not copy, reproduce, modify, distribute, or transmit any part of this website without our explicit prior written consent.</p>
+                <h3>7. Limitation of Liability</h3>
+                <p>Tanti Style shall not be liable for any indirect, incidental, or consequential damages resulting from the use or the inability to use the materials on this website, or the performance of the products purchased through the platform.</p>
+            </div>
+        </div>
+
+        <!-- ABOUT US VIEW -->
+        <div id="about-us-view" class="policy-page-container" style="display: none;">
+            <div class="policy-page-header">
+                <h1>About Us</h1>
+            </div>
+            <div class="container policy-page-content">
+                <h2>Weaving Tradition, Dressing Today</h2>
+                <p class="last-updated">Preserving Heritage Since 2026</p>
+                <p>Welcome to <strong>Tanti Style</strong>, your trusted destination for authentic, handcrafted traditional wear. Rooted deeply in the rich handloom heritage of Bangladesh, we bridge the gap between historic craftsmanship and modern fashion sensibilities.</p>
+                <h3>Our Origin & Legacy</h3>
+                <p>Our journey begins straight from the heart of Bangladeshi weaving—our authentic handloom factories located in <strong>Enayetpur and Shajadpur, Sirajganj</strong>. Tanti Style is proud to support the local artisans who keep this intricate art alive through generations.</p>
+            </div>
+        </div>
+
+        <!-- CONTACT US VIEW -->
+        <div id="contact-us-view" class="policy-page-container" style="display: none;">
+            <div class="policy-page-header">
+                <h1>Contact Us</h1>
+            </div>
+            <div class="container policy-page-content">
+                <h2>Get in Touch with Tanti Style</h2>
+                <p class="last-updated">We are here to assist you 24/7</p>
+                <div class="contact-grid-custom">
+                    <div class="contact-method-card">
+                        <h3><i class="fas fa-headset"></i> Customer Care</h3>
+                        <p><strong>Phone:</strong> 01570282112</p>
+                        <p><strong>Email:</strong> tantistyleinfo@gmail.com</p>
+                    </div>
+                    <div class="contact-method-card">
+                        <h3><i class="fas fa-industry"></i> Factory & Corporate Office</h3>
+                        <p><strong>Enayetpur Factory:</strong> Enayetpur, Sirajgonj 6751, Bangladesh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGIN VIEW -->
+        <div id="login-view" class="login-page-container" style="display: none;">
+            <div class="premium-login-panel">
+                <div class="login-panel-header">
+                    <span class="login-kicker">Premium Account</span>
+                    <h1>Login to Tanti Style</h1>
+                    <p>Access your order history, saved products, and faster checkout.</p>
+                </div>
+                <!-- আমি এখানে demo login form রাখছি; backend ছাড়া কোনো password save করা হচ্ছে না। -->
+                <form class="login-form" autocomplete="on">
+                    <label for="login-email">Email Address</label>
+                    <div class="login-input-group">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Enter your email" maxlength="120" autocomplete="email" required>
+                    </div>
+
+                    <label for="login-password">Password</label>
+                    <div class="login-input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Enter your password" maxlength="80" autocomplete="current-password" required>
+                    </div>
+
+                    <div class="login-options">
+                        <label class="remember-me">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="login-submit-btn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- CHECKOUT / WHATSAPP ORDER VIEW -->
+        <div id="checkout-view" class="checkout-page-container" style="display: none;">
+            <div class="container checkout-layout">
+                <div class="checkout-header">
+                    <span class="checkout-kicker">Your Cart</span>
+                    <h1>Confirm Your Products</h1>
+                    <p>Review your selected items before sending the order request on WhatsApp.</p>
+                </div>
+
+                <div id="checkout-items-list" class="checkout-items-list">
+                    <!-- JS will inject cart items here -->
+                </div>
+
+                <div class="checkout-actions">
+                    <button type="button" id="whatsapp-order-btn" class="whatsapp-order-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- End of wrapper -->
+
+    <div id="product-image-modal" class="product-image-modal" aria-hidden="true">
+        <button type="button" class="image-modal-close" aria-label="Close image preview">&times;</button>
+        <img id="modal-product-image" src="" alt="Product preview">
+    </div>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <p class="footer-contact-item">Address: Enayetpur, Sirajgonj 6751</p>
+                <p class="footer-contact-item">Email: <a href="mailto:tantistyleinfo@gmail.com">tantistyleinfo@gmail.com</a></p>
+                <p class="footer-contact-item">Phone: 01570282112</p>
+                
+                <div class="footer-socials">
+                    <!-- আমি এখানে social links নিরাপদভাবে নতুন tab-এ খুলছি। -->
+                    <a href="https://www.facebook.com/share/19HTC7WBQz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@tantistyle?si=m9gN_roLtzOLlvyU" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/tantistyle?igsh=MXA1bGhrc2xrcHhidg==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tanti.style?_r=1&_t=ZS-97gtprSDQB8" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://pin.it/1YuIVdNzh" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Policies</h3>
+                <ul>
+                    <li><a href="#" id="privacy-link">Privacy Policy</a></li>
+                    <li><a href="#" id="return-link">Returns + Exchanges</a></li>
+                    <li><a href="#" id="terms-link">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#" id="our-store-link">Our Store</a></li>
+                    <li><a href="#" id="footer-contact-link">Contact Us</a></li>
+                    <li><a href="#" id="footer-about-link">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Tanti Style. All Rights Reserved</p>
+            <p>Developed by <a href="https://selfmsbillah.github.io/masumportfolio.github.io/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Masum Billah</a></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
